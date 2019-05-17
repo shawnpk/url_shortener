@@ -1,24 +1,25 @@
-# README
+# URL Shortener
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+- Ruby version 2.6.1
+- Rails version 5.2.3
 
-Things you may want to cover:
+## Usage
+- Clone repository
+- Run bundle
+- Start rails server
 
-* Ruby version
+## Endpoints
+##### localhost:3000/short_link  -> Create a short link
+- Parameters: url, user_id
+- Example route: localhost:3000/short_link?url=https://kapost.com/join-our-team/&user_id=1
+returns:
 
-* System dependencies
+{
 
-* Configuration
+    "long_url": "https://kapost.com/join-our-team/"
+    "short_link": "http://localhost:3000/c06c9a"
 
-* Database creation
+}
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+##### localhost:3000/:short_link -> Redirect short link to original link
+- Example: http://localhost:3000/c06c9a redirects to https://www.kapost.com
