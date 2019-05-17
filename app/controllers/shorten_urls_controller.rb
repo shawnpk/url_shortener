@@ -6,13 +6,13 @@ class ShortenUrlsController < ApplicationController
 
     if url
       url.save
-      redirect_to url.body
+      redirect_to url.body, status: :moved_permanently
     else
       render json: nil, status: :no_content
     end
   end
 
   def create
-    render json: shorten_link(params[:url])
+    render json: shorten_link(params[:url], params[:user_id])
   end
 end
